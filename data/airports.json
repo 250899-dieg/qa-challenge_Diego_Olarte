@@ -1,0 +1,8 @@
+[
+  { "code": "BOG", "name": "El Dorado International Airport", "city": "Bogotá, Colombia" },
+  { "code": "MEX", "name": "Benito Juárez International Airport", "city": "Mexico City, Mexico" },
+  { "code": "MIA", "name": "Miami International Airport", "city": "Miami, USA" },
+  { "code": "JFK", "name": "John F. Kennedy International Airport", "city": "New York, USA" },
+  { "code": "MAD", "name": "Adolfo Suárez Madrid–Barajas Airport", "city": "Madrid, Spain" },
+  { "code": "GRU", "name": "São Paulo/Guarulhos International Airport", "city": "São Paulo, Brazil" }
+]
