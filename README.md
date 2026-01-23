@@ -27,6 +27,12 @@ npm run dev
 
 > You just joined Skyline Skyways as a QA Automation Engineer. Your first assignment is to explore this MVP, document every defect you find, and start building automated regression coverage. **Use the Page Object Model (POM)** pattern under `tests/pom/` and log findings inside a new `BUGS.md` file at the project root.
 
+## Entregable Teórico
+
+- Revisa las preguntas en [theory-questions.md](theory-questions.md) y entrega tus respuestas como parte del repo (puede ser en el mismo archivo o en un documento claramente referenciado aquí).
+- Asegúrate de cubrir casos funcionales, validaciones de frontend y la estrategia manual vs. automatizada siguiendo la guía del archivo.
+- Mantén la estructura sugerida en el documento para que el equipo de revisión pueda evaluar rápidamente tu razonamiento.
+
 ## BUGS Template
 
 - Start from the pre-populated [BUGS.md](BUGS.md) table to capture defect title, steps, expected vs. actual results, severity, and evidence links.
