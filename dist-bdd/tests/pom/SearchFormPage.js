@@ -11,7 +11,6 @@ class SearchFormPage {
     submitBtn;
     constructor(page) {
         this.page = page;
-        // ✅ Reutiliza EXACTO lo que ya funciona en el spec
         this.origin = page.getByLabel('Origin Airport');
         this.destination = page.getByLabel('Destination Airport');
         this.departureDate = page.getByLabel('Departure Date');
@@ -22,17 +21,23 @@ class SearchFormPage {
         const baseUrl = process.env.BASE_URL ?? 'http://localhost:3000';
         await this.page.goto(baseUrl + '/', { waitUntil: 'domcontentloaded' });
     }
+    async assertHeroHeading() {
+        await (0, test_1.expect)(this.page.getByRole('heading', { name: 'Flight Management QA Challenge' })).toBeVisible();
+    }
     async fillTrip(origin, destination, departure, ret) {
         await this.origin.fill(origin);
         await this.destination.fill(destination);
         await this.departureDate.fill(departure);
-        await this.returnDate.fill(ret);
+        // return date es opcional
+        if (ret && ret.trim().length > 0) {
+            await this.returnDate.fill(ret);
+        }
     }
     async submit() {
         await this.submitBtn.click();
     }
-    async assertNavigatedToResults(origin) {
-        await (0, test_1.expect)(this.page).toHaveURL(new RegExp(`/results\\?origin=${origin}`));
+    async assertNavigatedToResults(origin, destination) {
+        await (0, test_1.expect)(this.page).toHaveURL(new RegExp(`/results\\?[^#]*origin=${origin}[^#]*destination=${destination}`));
     }
 }
 exports.SearchFormPage = SearchFormPage;

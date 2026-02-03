@@ -13,7 +13,8 @@
     "test:api": "playwright test tests/api",
     "prepare": "husky install || true",
     "build:bdd": "tsc -p tsconfig.bdd.json",
-    "test:bdd": "npm run build:bdd && cucumber-js && cmd /c start \"\" test-results\\cucumber-report.html"
+    "test:bdd": "npm run build:bdd && cucumber-js && node expand-cucumber-report.js && node -e \"require('open')('test-results/cucumber-report.html')\"",
+    "test:tag": "npm run build:bdd && cross-env TAGS=%npm_config_tags% cucumber-js && node expand-cucumber-report.js && node -e \"import('open').then(o => o.default('test-results/cucumber-report.html'))\""
 
   },
   "dependencies": {
@@ -31,8 +32,10 @@
     "@types/react": "^18.2.66",
     "@types/react-dom": "^18.2.22",
     "autoprefixer": "^10.4.17",
+    "cross-env": "^10.1.0",
     "eslint": "^8.56.0",
     "eslint-config-next": "^14.2.5",
+    "open": "^11.0.0",
     "open-cli": "^8.0.0",
     "postcss": "^8.4.35",
     "tailwindcss": "^3.4.3",
